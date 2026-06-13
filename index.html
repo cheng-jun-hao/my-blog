@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CJH 的技术博客</title>
+  <meta name="description" content="CJH 的个人技术博客 - 网络安全、AI、前端开发技术分享">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 开场动画遮罩 -->
+  <div class="intro-overlay" id="introOverlay">
+    <div class="intro-logo">
+      <span class="intro-bracket"></span><span class="intro-name">欢迎来到 CJH的技术博客</span><span class="intro-bracket"></span>
+    </div>
+    <div class="intro-line"></div>
+  </div>
+
+  <!-- 滚动进度条 -->
+  <div class="scroll-progress"></div>
+
+  <!-- 鼠标光晕 -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo"><span></span>CJH 的技术博客<span></span></a>
+      <ul class="nav-links">
+        <li><a href="#about" class="active">关于我</a></li>
+        <li><a href="#blog">博客</a></li>
+        <li><a href="#contact">联系方式</a></li>
+      </ul>
+      <button class="hamburger" aria-label="菜单">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero 首屏 -->
+    <section id="hero" class="hero">
+      <canvas class="hero-grid" id="heroGrid"></canvas>
+      <div class="hero-content">
+        <div class="hero-label">CJH's Tech Blog</div>
+        <h1 class="hero-title" id="heroTitle">探索技术<br>守护安全</h1>
+        <p class="hero-desc">网络安全 · AI  — 记录技术实战与思考</p>
+        <a href="#about" class="hero-cta" id="heroCta">了解更多 <span>&darr;</span></a>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-code">
+          <span class="code-line"><span class="code-keyword">def</span> <span class="code-func">protect</span>(target):</span>
+          <span class="code-line code-indent">threats = <span class="code-func">detect</span>(target)</span>
+          <span class="code-line code-indent"><span class="code-keyword">if</span> threats:</span>
+          <span class="code-line code-indent2"><span class="code-keyword">return</span> <span class="code-func">defend</span>(threats)</span>
+          <span class="code-line code-indent"><span class="code-keyword">return</span> <span class="code-string">"secure"</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about">
+      <div class="section-inner">
+        <div class="section-header">
+          <h2>关于我</h2>
+          <p>热爱技术，专注安全</p>
+        </div>
+
+        <div class="about-hero">
+          <div class="about-avatar">C</div>
+          <div>
+            <h3 class="about-name">CJH</h3>
+            <p class="about-tagline">网络安全 / AI / 全栈开发</p>
+          </div>
+        </div>
+
+        <div class="skills-section">
+          <h3>技能</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">网络安全</span>
+            <span class="skill-tag">AI / 深度学习</span>
+            <span class="skill-tag">前端开发</span>
+            <span class="skill-tag">Web安全</span>
+            <span class="skill-tag">CNN / LSTM</span>
+          </div>
+        </div>
+
+        <div class="timeline-section">
+          <h3>经历与荣誉</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="item-title">AI钓鱼网站动态识别及防护软件开发项目 入选西安市春笋计划</div>
+              <div class="item-desc">基于CNN的钓鱼网站动态识别技术，开发浏览器防护插件，实现AI检测与传统黑白名单的双保险防御体系</div>
+            </div>
+            <div class="timeline-item">
+              <div class="item-title">第26届学生数字素养提升大赛获西安市一，陕西省一，晋级国赛</div>
+              <div class="item-desc">拥有丰富的开发经验，从市级到省级一路突围</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 博客文章列表 -->
+    <section id="blog">
+      <div class="section-inner">
+        <div class="section-header">
+          <h2>博客文章</h2>
+          <p>技术探索与实战记录，点击阅读全文跳转至 CSDN</p>
+        </div>
+        <div class="category-bar" id="category-tags"></div>
+        <div id="article-list"></div>
+      </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact">
+      <div class="section-inner">
+        <div class="section-header">
+          <h2>联系方式</h2>
+          <p>欢迎交流与探讨</p>
+        </div>
+
+        <div class="contact-cards">
+          <div class="contact-card" id="email-card" title="点击复制邮箱">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+            </div>
+            <div class="contact-info">
+              <h3>邮箱</h3>
+              <p>cjh2571849673@163.com</p>
+            </div>
+          </div>
+
+          <div class="contact-card" id="csdn-card" title="访问 CSDN 主页">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+              </svg>
+            </div>
+            <div class="contact-info">
+              <h3>CSDN</h3>
+              <p>blog.csdn.net/qq_68725483</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <p>&copy; 2026 CJH 的技术博客 · 基于 <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a> 部署</p>
+  </footer>
+
+  <script src="js/articles.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
