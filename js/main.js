@@ -428,14 +428,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const contactCards = document.querySelector(".contact-cards");
   if (contactCards) contactObserver.observe(contactCards);
 
-  // ===== PWA 注册 =====
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("sw.js").catch(() => {
-        // Service Worker 注册失败，静默处理
-      });
-    });
-  }
 });
 
 // Toast 提示
