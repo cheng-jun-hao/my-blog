@@ -1,6 +1,46 @@
 // CJH 的技术博客 - 主逻辑
 
+// ===== 安全工具函数 =====
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function sanitizeUrl(url) {
+  try {
+    const parsed = new URL(url);
+    if (["https:", "http:"].includes(parsed.protocol)) {
+      return parsed.href;
+    }
+  } catch (_) { /* invalid URL */ }
+  return "";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+
+  // ===== 暗黑模式 =====
+  const themeToggle = document.getElementById("themeToggle");
+  const savedTheme = (() => {
+    try { return localStorage.getItem("theme"); } catch (_) { return null; }
+  })();
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    try { localStorage.setItem("theme", theme); } catch (_) { /* storage unavailable */ }
+  }
+
+  applyTheme(initialTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      applyTheme(current === "dark" ? "light" : "dark");
+    });
+  }
+
   // ===== 开场动画 =====
   const introOverlay = document.getElementById("introOverlay");
   if (introOverlay) {
@@ -8,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
       introOverlay.classList.add("exit");
       setTimeout(() => {
         introOverlay.remove();
-        // 开场结束后启动 Hero 动画
         startHeroAnimations();
       }, 1000);
     }, 1800);
@@ -17,43 +56,51 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function startHeroAnimations() {
-    // 逐字动画标题
-    initCharReveal();
-    // 点阵背景
+    initTypewriter();
     initDotGrid();
-    // Hero 元素入场
     document.querySelector(".hero-label")?.classList.add("animate");
     document.querySelector(".hero-desc")?.classList.add("animate");
     document.querySelector(".hero-cta")?.classList.add("animate");
     document.querySelector(".hero-visual")?.classList.add("animate");
   }
 
-  // ===== 逐字动画 =====
-  function initCharReveal() {
+  // ===== 打字机效果 =====
+  function initTypewriter() {
     const title = document.getElementById("heroTitle");
     if (!title) return;
 
-    const text = title.innerHTML;
-    const lines = text.split("<br>");
-    let charIndex = 0;
-    const baseDelay = 1.6; // 开场动画后开始
-
-    const newHTML = lines.map((line, lineIdx) => {
-      const chars = line.split("").map(char => {
-        if (char === " ") {
-          return `<span class="char-space"></span>`;
-        }
-        const delay = baseDelay + charIndex * 0.06;
-        charIndex++;
-        return `<span class="char" style="animation-delay:${delay}s">${char}</span>`;
-      }).join("");
-      return lineIdx < lines.length - 1 ? chars + "<br>" : chars;
-    }).join("");
-
-    title.innerHTML = newHTML;
+    const fullText = title.textContent.trim();
+    title.textContent = "";
     title.style.opacity = "1";
     title.style.transform = "none";
     title.style.animation = "none";
+
+    const cursor = document.createElement("span");
+    cursor.className = "typewriter-cursor";
+    title.appendChild(cursor);
+
+    let charIndex = 0;
+    const baseDelay = 1600;
+    const charDelay = 80;
+
+    function typeChar() {
+      if (charIndex < fullText.length) {
+        const char = fullText[charIndex];
+        if (char === "\n" || (charIndex > 0 && fullText[charIndex - 1] === "\n")) {
+          // skip
+        }
+        title.insertBefore(document.createTextNode(char), cursor);
+        charIndex++;
+        const nextDelay = char === "，" || char === "。" || char === "、" ? charDelay * 3 : charDelay;
+        setTimeout(typeChar, nextDelay);
+      } else {
+        setTimeout(() => {
+          if (cursor.parentNode) cursor.remove();
+        }, 3000);
+      }
+    }
+
+    setTimeout(typeChar, baseDelay);
   }
 
   // ===== 点阵背景 =====
@@ -91,6 +138,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      const baseColor = isDark ? "rgba(148, 163, 184, 0.08)" : "rgba(0, 0, 0, 0.06)";
+      const activeColorBase = isDark ? "59, 130, 246" : "37, 99, 235";
 
       for (let x = dotSpacing; x < canvas.width; x += dotSpacing) {
         for (let y = dotSpacing; y < canvas.height; y += dotSpacing) {
@@ -103,12 +153,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const r = dotRadius + intensity * 2.5;
             ctx.beginPath();
             ctx.arc(x, y, r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(37, 99, 235, ${0.15 + intensity * 0.5})`;
+            ctx.fillStyle = `rgba(${activeColorBase}, ${0.15 + intensity * 0.5})`;
             ctx.fill();
           } else {
             ctx.beginPath();
             ctx.arc(x, y, dotRadius, 0, Math.PI * 2);
-            ctx.fillStyle = "rgba(0, 0, 0, 0.06)";
+            ctx.fillStyle = baseColor;
             ctx.fill();
           }
         }
@@ -117,7 +167,6 @@ document.addEventListener("DOMContentLoaded", () => {
       animId = requestAnimationFrame(draw);
     }
 
-    // 延迟启动点阵动画
     setTimeout(() => {
       canvas.classList.add("visible");
       draw();
@@ -175,6 +224,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Hero 视差
   const heroVisual = document.querySelector(".hero-visual");
 
+  // 回到顶部按钮
+  const backToTop = document.getElementById("backToTop");
+
   let ticking = false;
 
   window.addEventListener("scroll", () => {
@@ -189,6 +241,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // 导航栏阴影
         navbar.classList.toggle("scrolled", scrollY > 10);
+
+        // 回到顶部按钮
+        if (backToTop) {
+          backToTop.classList.toggle("visible", scrollY > 400);
+        }
 
         // Hero 视差
         if (heroVisual && scrollY < window.innerHeight) {
@@ -214,6 +271,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // 回到顶部点击
+  if (backToTop) {
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
   // 汉堡菜单
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.querySelector(".nav-links");
@@ -230,7 +294,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 邮箱复制功能
+  // ===== 搜索功能 =====
+  const searchInput = document.getElementById("searchInput");
+  const searchClear = document.getElementById("searchClear");
+
+  if (searchInput) {
+    let searchTimeout;
+    searchInput.addEventListener("input", () => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        const query = searchInput.value.trim();
+        if (searchClear) {
+          searchClear.classList.toggle("visible", query.length > 0);
+        }
+        if (typeof performSearch === "function") {
+          performSearch(query);
+        }
+      }, 200);
+    });
+
+    if (searchClear) {
+      searchClear.addEventListener("click", () => {
+        searchInput.value = "";
+        searchClear.classList.remove("visible");
+        if (typeof performSearch === "function") {
+          performSearch("");
+        }
+        searchInput.focus();
+      });
+    }
+  }
+
+  // ===== 邮箱复制功能 =====
   const emailCard = document.getElementById("email-card");
   if (emailCard) {
     emailCard.addEventListener("click", () => {
@@ -240,6 +335,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }).catch(() => {
         const textarea = document.createElement("textarea");
         textarea.value = email;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
         document.body.appendChild(textarea);
         textarea.select();
         document.execCommand("copy");
@@ -257,7 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 板块入场动画（统一管理）
+  // ===== 板块入场动画 =====
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -330,6 +427,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const contactCards = document.querySelector(".contact-cards");
   if (contactCards) contactObserver.observe(contactCards);
+
+  // ===== PWA 注册 =====
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js").catch(() => {
+        // Service Worker 注册失败，静默处理
+      });
+    });
+  }
 });
 
 // Toast 提示

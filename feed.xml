@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>CJH 的技术博客</title>
+    <description>CJH 的个人技术博客 - 网络安全、AI、前端开发技术分享</description>
+    <link>https://cheng-jun-hao.github.io/my-blog/</link>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 13 Jun 2026 00:00:00 +0800</lastBuildDate>
+    <item>
+      <title>从快手"12·22"直播攻击事件看：一次教科书式的业务层饱和攻击</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/156206753</link>
+      <description>从快手"12·22"直播攻击事件看：一次教科书式的业务层饱和攻击</description>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 +0800</pubDate>
+      <category>网络安全</category>
+    </item>
+    <item>
+      <title>【技术实战】基于CNN的AI钓鱼网站动态识别与防护插件开发</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/154583424</link>
+      <description>【技术实战】基于CNN的AI钓鱼网站动态识别与防护插件开发</description>
+      <pubDate>Sun, 09 Nov 2025 00:00:00 +0800</pubDate>
+      <category>网络安全</category>
+    </item>
+    <item>
+      <title>AI写作的字数谜题：Token机制与指令遵循的双重困境</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/153925309</link>
+      <description>AI写作的字数谜题：Token机制与指令遵循的双重困境</description>
+      <pubDate>Tue, 28 Oct 2025 00:00:00 +0800</pubDate>
+      <category>AI</category>
+    </item>
+    <item>
+      <title>AI驱动的Web异常流量检测实战：基于LSTM-Transformer的入侵行为智能分析</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/148954333</link>
+      <description>AI驱动的Web异常流量检测实战：基于LSTM-Transformer的入侵行为智能分析</description>
+      <pubDate>Fri, 27 Jun 2025 00:00:00 +0800</pubDate>
+      <category>网络安全</category>
+    </item>
+    <item>
+      <title>Wireshark网络抓包工具基础使用教程</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/147668820</link>
+      <description>Wireshark网络抓包工具基础使用教程</description>
+      <pubDate>Fri, 02 May 2025 00:00:00 +0800</pubDate>
+      <category>系统工具</category>
+    </item>
+    <item>
+      <title>在Kali Linux上安装GNOME桌面环境完整教程</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/147666992</link>
+      <description>在Kali Linux上安装GNOME桌面环境完整教程</description>
+      <pubDate>Fri, 02 May 2025 00:00:00 +0800</pubDate>
+      <category>系统工具</category>
+    </item>
+    <item>
+      <title>Trae-中国首款免费AI原生IDE</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/146768903</link>
+      <description>Trae-中国首款免费AI原生IDE</description>
+      <pubDate>Sun, 30 Mar 2025 00:00:00 +0800</pubDate>
+      <category>系统工具</category>
+    </item>
+    <item>
+      <title>AI PPT制作神器Kimi</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/145783959</link>
+      <description>AI PPT制作神器Kimi</description>
+      <pubDate>Fri, 21 Feb 2025 00:00:00 +0800</pubDate>
+      <category>AI</category>
+    </item>
+    <item>
+      <title>网络安全：挑战与防御技术</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/145715013</link>
+      <description>网络安全：挑战与防御技术</description>
+      <pubDate>Tue, 18 Feb 2025 00:00:00 +0800</pubDate>
+      <category>网络安全</category>
+    </item>
+    <item>
+      <title>如何实现更高效的多模态融合</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/145665661</link>
+      <description>如何实现更高效的多模态融合</description>
+      <pubDate>Sun, 16 Feb 2025 00:00:00 +0800</pubDate>
+      <category>AI</category>
+    </item>
+    <item>
+      <title>DeepSeek、Kimi、文心一言、ChatGPT 你更适合用哪个？</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/145662905</link>
+      <description>DeepSeek、Kimi、文心一言、ChatGPT 你更适合用哪个？</description>
+      <pubDate>Sun, 16 Feb 2025 00:00:00 +0800</pubDate>
+      <category>AI</category>
+    </item>
+    <item>
+      <title>Deepseek本地部署超详细教程</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/145411273</link>
+      <description>Deepseek本地部署超详细教程</description>
+      <pubDate>Sat, 01 Feb 2025 00:00:00 +0800</pubDate>
+      <category>AI</category>
+    </item>
+    <item>
+      <title>怎么用CSS画一个爱心？</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/136422226</link>
+      <description>怎么用CSS画一个爱心？</description>
+      <pubDate>Sat, 02 Mar 2024 00:00:00 +0800</pubDate>
+      <category>前端开发</category>
+    </item>
+    <item>
+      <title>HTML超链接去下划线</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/136422012</link>
+      <description>HTML超链接去下划线</description>
+      <pubDate>Sat, 02 Mar 2024 00:00:00 +0800</pubDate>
+      <category>前端开发</category>
+    </item>
+    <item>
+      <title>HTML板块左右排列布局</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/136157517</link>
+      <description>HTML板块左右排列布局</description>
+      <pubDate>Sun, 18 Feb 2024 00:00:00 +0800</pubDate>
+      <category>前端开发</category>
+    </item>
+    <item>
+      <title>HTML动态彩虹字</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/136129498</link>
+      <description>HTML动态彩虹字</description>
+      <pubDate>Fri, 16 Feb 2024 00:00:00 +0800</pubDate>
+      <category>前端开发</category>
+    </item>
+    <item>
+      <title>HTML单击图片独立放大</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/136126922</link>
+      <description>HTML单击图片独立放大</description>
+      <pubDate>Fri, 16 Feb 2024 00:00:00 +0800</pubDate>
+      <category>前端开发</category>
+    </item>
+    <item>
+      <title>HTML基本结构</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/135302266</link>
+      <description>HTML基本结构</description>
+      <pubDate>Sat, 30 Dec 2023 00:00:00 +0800</pubDate>
+      <category>前端开发</category>
+    </item>
+    <item>
+      <title>我的创作纪念日</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/134467642</link>
+      <description>我的创作纪念日</description>
+      <pubDate>Fri, 17 Nov 2023 00:00:00 +0800</pubDate>
+      <category>其他</category>
+    </item>
+    <item>
+      <title>CMD常用网络命令汇总</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/134347142</link>
+      <description>CMD常用网络命令汇总</description>
+      <pubDate>Sat, 11 Nov 2023 00:00:00 +0800</pubDate>
+      <category>网络安全</category>
+    </item>
+    <item>
+      <title>Win10想用Win11图标？一招教你解决</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/134095251</link>
+      <description>Win10想用Win11图标？一招教你解决</description>
+      <pubDate>Sat, 28 Oct 2023 00:00:00 +0800</pubDate>
+      <category>系统工具</category>
+    </item>
+    <item>
+      <title>大咖云集，智慧碰撞 第18届中国Linux内核开发者大会</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/134081429</link>
+      <description>大咖云集，智慧碰撞 第18届中国Linux内核开发者大会</description>
+      <pubDate>Fri, 27 Oct 2023 00:00:00 +0800</pubDate>
+      <category>系统工具</category>
+    </item>
+    <item>
+      <title>Python爬虫之爬取整个网页</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/133968281</link>
+      <description>Python爬虫之爬取整个网页</description>
+      <pubDate>Sun, 22 Oct 2023 00:00:00 +0800</pubDate>
+      <category>系统工具</category>
+    </item>
+    <item>
+      <title>如何用Python进行DDOS攻击？【网络攻防篇】</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/133967092</link>
+      <description>如何用Python进行DDOS攻击？【网络攻防篇】</description>
+      <pubDate>Sat, 21 Oct 2023 00:00:00 +0800</pubDate>
+      <category>网络安全</category>
+    </item>
+    <item>
+      <title>Win10想用Win11任务栏？Start11帮你解决</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/133965906</link>
+      <description>Win10想用Win11任务栏？Start11帮你解决</description>
+      <pubDate>Sat, 21 Oct 2023 00:00:00 +0800</pubDate>
+      <category>系统工具</category>
+    </item>
+  </channel>
+</rss>

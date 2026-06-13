@@ -5,6 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CJH 的技术博客</title>
   <meta name="description" content="CJH 的个人技术博客 - 网络安全、AI、前端开发技术分享">
+  <meta name="keywords" content="CJH,技术博客,网络安全,AI,前端开发,深度学习,Web安全">
+  <meta name="author" content="CJH">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="alternate" type="application/rss+xml" title="CJH 的技术博客" href="feed.xml">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="CJH 的技术博客">
+  <meta property="og:description" content="CJH 的个人技术博客 - 网络安全、AI、前端开发技术分享">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cheng-jun-hao.github.io/my-blog/">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="CJH 的技术博客">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CJH 的技术博客">
+  <meta name="twitter:description" content="CJH 的个人技术博客 - 网络安全、AI、前端开发技术分享">
+
+  <!-- JSON-LD 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "CJH 的技术博客",
+    "description": "CJH 的个人技术博客 - 网络安全、AI、前端开发技术分享",
+    "url": "https://cheng-jun-hao.github.io/my-blog/",
+    "author": {
+      "@type": "Person",
+      "name": "CJH"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "CJH"
+    }
+  }
+  </script>
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -31,11 +70,21 @@
         <li><a href="#blog">博客</a></li>
         <li><a href="#contact">联系方式</a></li>
       </ul>
-      <button class="hamburger" aria-label="菜单">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button class="hamburger" aria-label="菜单">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -45,7 +94,8 @@
       <canvas class="hero-grid" id="heroGrid"></canvas>
       <div class="hero-content">
         <div class="hero-label">CJH's Tech Blog</div>
-        <h1 class="hero-title" id="heroTitle">探索技术<br>守护安全</h1>
+        <h1 class="hero-title" id="heroTitle">探索技术
+守护安全</h1>
         <p class="hero-desc">网络安全 · AI  — 记录技术实战与思考</p>
         <a href="#about" class="hero-cta" id="heroCta">了解更多 <span>&darr;</span></a>
       </div>
@@ -111,8 +161,28 @@
           <h2>博客文章</h2>
           <p>技术探索与实战记录，点击阅读全文跳转至 CSDN</p>
         </div>
+
+        <!-- 搜索栏 -->
+        <div class="search-bar">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" id="searchInput" placeholder="搜索文章标题、摘要或分类..." autocomplete="off">
+          <button class="search-clear" id="searchClear" aria-label="清除搜索">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+
         <div class="category-bar" id="category-tags"></div>
         <div id="article-list"></div>
+
+        <!-- 评论区域 -->
+        <div class="comments-section">
+          <h3>评论</h3>
+          <div class="giscus"></div>
+        </div>
       </div>
     </section>
 
@@ -158,7 +228,40 @@
   <!-- 页脚 -->
   <footer class="footer">
     <p>&copy; 2026 CJH 的技术博客 · 基于 <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a> 部署</p>
+    <div class="site-stats">
+      <span>本文总阅读量 <span id="busuanzi_value_page_pv">-</span> 次</span>
+      <span>本站总访问量 <span id="busuanzi_value_site_pv">-</span> 次</span>
+      <span>本站访客数 <span id="busuanzi_value_site_uv">-</span> 人</span>
+    </div>
   </footer>
+
+  <!-- 回到顶部按钮 -->
+  <button class="back-to-top" id="backToTop" aria-label="回到顶部">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- 不蒜子统计 -->
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <!-- Giscus 评论系统（需配置仓库后启用）-->
+  <script src="https://giscus.app/client.js"
+    data-repo="cheng-jun-hao/my-blog"
+    data-repo-id=""
+    data-category="Comments"
+    data-category-id=""
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
 
   <script src="js/articles.js"></script>
   <script src="js/main.js"></script>

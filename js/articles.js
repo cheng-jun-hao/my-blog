@@ -180,40 +180,92 @@ const articles = [
 // 分类列表
 const categories = ["全部", "网络安全", "AI", "前端开发", "系统工具", "其他"];
 
-// 渲染文章列表
-function renderArticles(filter = "全部") {
+// 当前状态
+let currentCategory = "全部";
+let currentSearchQuery = "";
+
+// ===== 安全工具函数 =====
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function sanitizeUrl(url) {
+  try {
+    const parsed = new URL(url);
+    if (["https:", "http:"].includes(parsed.protocol)) {
+      return parsed.href;
+    }
+  } catch (_) { /* invalid URL */ }
+  return "";
+}
+
+// ===== 搜索高亮（XSS 安全）=====
+function highlightText(text, query) {
+  if (!query) return escapeHtml(text);
+  const escaped = escapeHtml(text);
+  const safeQuery = escapeHtml(query);
+  const regex = new RegExp(`(${safeQuery.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
+  return escaped.replace(regex, '<span class="search-highlight">$1</span>');
+}
+
+// ===== 渲染文章列表（XSS 安全）=====
+function renderArticles(filter, searchQuery) {
   const container = document.getElementById("article-list");
   if (!container) return;
 
-  const filtered = filter === "全部"
+  filter = filter || currentCategory;
+  searchQuery = (searchQuery !== undefined) ? searchQuery : currentSearchQuery;
+
+  let filtered = filter === "全部"
     ? articles
     : articles.filter(a => a.category === filter);
 
-  container.innerHTML = filtered.map(article => `
-    <article class="article-card">
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    filtered = filtered.filter(a =>
+      a.title.toLowerCase().includes(q) ||
+      a.summary.toLowerCase().includes(q) ||
+      a.category.toLowerCase().includes(q)
+    );
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<div class="no-results"><div class="no-results-icon">\uD83D\uDD0D</div><p>未找到相关文章</p></div>';
+    return;
+  }
+
+  container.innerHTML = filtered.map((article, index) => {
+    const safeUrl = sanitizeUrl(article.url);
+    const titleHtml = highlightText(article.title, searchQuery);
+    const summaryHtml = highlightText(article.summary, searchQuery);
+    const categoryHtml = highlightText(article.category, searchQuery);
+
+    return `<article class="article-card" style="animation-delay:${index * 0.05}s">
       <div class="article-meta">
-        <span class="article-category">${article.category}</span>
-        <time class="article-date">${article.date}</time>
+        <span class="article-category">${categoryHtml}</span>
+        <time class="article-date">${escapeHtml(article.date)}</time>
       </div>
-      <h3 class="article-title">${article.title}</h3>
-      <p class="article-summary">${article.summary}</p>
-      <a class="article-link" href="${article.url}" target="_blank" rel="noopener noreferrer">
+      <h3 class="article-title">${titleHtml}</h3>
+      <p class="article-summary">${summaryHtml}</p>
+      <a class="article-link" href="${safeUrl}" target="_blank" rel="noopener noreferrer">
         阅读全文 <span class="link-arrow">&rarr;</span>
       </a>
-    </article>
-  `).join("");
+    </article>`;
+  }).join("");
 }
 
-// 渲染分类标签
+// ===== 渲染分类标签 =====
 function renderCategories() {
   const container = document.getElementById("category-tags");
   if (!container) return;
 
-  container.innerHTML = categories.map(cat => `
-    <button class="category-tag ${cat === "全部" ? "active" : ""}" data-category="${cat}">
-      ${cat}
-    </button>
-  `).join("");
+  container.innerHTML = categories.map(cat => {
+    return `<button class="category-tag ${cat === currentCategory ? "active" : ""}" data-category="${escapeHtml(cat)}">
+      ${escapeHtml(cat)}
+    </button>`;
+  }).join("");
 
   container.addEventListener("click", (e) => {
     const btn = e.target.closest(".category-tag");
@@ -222,9 +274,15 @@ function renderCategories() {
     container.querySelectorAll(".category-tag").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
 
-    const category = btn.dataset.category;
-    renderArticles(category);
+    currentCategory = btn.dataset.category;
+    renderArticles(currentCategory, currentSearchQuery);
   });
+}
+
+// ===== 搜索执行函数（供 main.js 调用）=====
+function performSearch(query) {
+  currentSearchQuery = query;
+  renderArticles(currentCategory, currentSearchQuery);
 }
 
 // 初始化

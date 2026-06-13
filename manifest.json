@@ -1,0 +1,16 @@
+{
+  "name": "CJH 的技术博客",
+  "short_name": "CJH博客",
+  "description": "CJH 的个人技术博客 - 网络安全、AI、前端开发技术分享",
+  "start_url": "/my-blog/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
