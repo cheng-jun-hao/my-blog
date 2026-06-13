@@ -1,6 +1,13 @@
 // 文章数据 - CJH 的技术博客
 const articles = [
   {
+    title: "上线仅72小时被强制下架：Claude Fable 5 的短命",
+    date: "2026-06-13",
+    category: "AI",
+    summary: "Claude Fable 5 上线仅72小时便被迫下架，折射出AI生成内容监管的紧迫性与复杂性。本文分析其背后的技术争议、平台责任与监管挑战，探讨AI内容生态的未来治理方向。",
+    url: "https://blog.csdn.net/qq_68725483/article/details/xxx"
+  },
+  {
     title: "从快手\"12·22\"直播攻击事件看：一次教科书式的业务层饱和攻击",
     date: "2025-12-23",
     category: "网络安全",
