@@ -399,6 +399,48 @@ a:hover {
   animation: heroReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
 }
 
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: heroReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+}
+
+.hero-cta-alt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0;
+  transform: translateY(12px);
+  animation: heroReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.65s forwards;
+}
+
+.hero-cta-alt:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+}
+
+.hero-cta-alt .alt-arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-cta-alt:hover .alt-arrow {
+  transform: translateX(4px);
+}
+
 .hero-cta:hover {
   background: #1d4ed8;
   color: #fff;
