@@ -262,7 +262,7 @@ const articles = [
 ];
 
 // 分类列表
-const categories = ["全部", "网络安全", "AI", "前端开发", "系统工具", "其他"];
+const categories = ["全部", "网络安全", "AI安全", "AI", "教程", "前端开发", "系统工具", "其他"];
 
 // 当前状态
 let currentCategory = "全部";
