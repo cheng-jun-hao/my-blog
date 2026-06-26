@@ -369,8 +369,22 @@ function performSearch(query) {
   renderArticles(currentCategory, currentSearchQuery);
 }
 
-// 初始化
-document.addEventListener("DOMContentLoaded", () => {
-  renderCategories();
-  renderArticles();
-});
+// 初始化（双重保险：DOM已就绪则立即执行，否则等 DOMContentLoaded）
+function initArticles() {
+  try {
+    renderCategories();
+    renderArticles();
+  } catch (e) {
+    console.error("文章渲染失败:", e);
+    const container = document.getElementById("article-list");
+    if (container) {
+      container.innerHTML = '<div class="no-results"><p>文章加载失败</p></div>';
+    }
+  }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initArticles);
+} else {
+  initArticles();
+}
