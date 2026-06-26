@@ -5,7 +5,91 @@
     <description>CJH 的个人技术博客 - 网络安全、AI、前端开发技术分享</description>
     <link>https://cheng-jun-hao.github.io/my-blog/</link>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 13 Jun 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jun 2026 00:00:00 +0800</lastBuildDate>
+    <item>
+      <title>微软Copilot高危漏洞CVE-2026-42824全解析</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/162168299</link>
+      <description>2026年6月微软Copilot曝出严重级漏洞CVE-2026-42824（代号SearchLeak），攻击者只需诱骗用户点击链接，即可窃取2FA验证码、邮件内容、会议详情等敏感数据。本文从技术视角深度解析漏洞原理与防御策略。</description>
+      <pubDate>Sat, 20 Jun 2026 00:00:00 +0800</pubDate>
+      <category>AI安全</category>
+    </item>
+    <item>
+      <title>用5个国产大模型帮你选大学</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/162078200</link>
+      <description>2026年高考季，实测智谱GLM 5、Deepseek V4 Pro、Qwen3.6、小米MIMO V2.5 Pro、MiniMax M3五大模型，从四个维度横向对比，帮高考生找到最适合的AI志愿助手。</description>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0800</pubDate>
+      <category>AI</category>
+    </item>
+    <item>
+      <title>2026国产大模型API选购指南</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/162078158</link>
+      <description>横向对比智谱GLM、通义千问、Deepseek、MiniMax、小米MIMO、Kimi六大主流模型API，从价格、性能、生态、稳定性、易用性五个维度全面评测。</description>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0800</pubDate>
+      <category>AI</category>
+    </item>
+    <item>
+      <title>免费开源国产：小米MiMo Code首日GitHub爆火</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/162016315</link>
+      <description>小米MiMo Code V0.1.0以MIT协议开源，GitHub首日爆火。深度解析MiMo Code技术架构，实测对比Claude Code和Trae，探讨国产AI编程工具的未来。</description>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 +0800</pubDate>
+      <category>AI</category>
+    </item>
+    <item>
+      <title>上线仅72小时被强制下架：Claude Fable 5 的短命</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/161961836</link>
+      <description>Anthropic发布号称"地表最强商用AI"的Claude Fable 5，仅3天后美国政府以"国家安全"为由强制全球下架。从技术视角深度解读事件始末与战略博弈。</description>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0800</pubDate>
+      <category>AI</category>
+    </item>
+    <item>
+      <title>大模型的"越狱"之路：从DAN到多模态注入，AI安全边界正在崩塌</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/161904080</link>
+      <description>从早期DAN角色扮演到ForgeDAN进化式越狱框架，再到多模态视频模态注入，系统梳理越狱攻击演进脉络，拆解真实案例，提供从模型层到输出层的多级防御方案。</description>
+      <pubDate>Mon, 08 Jun 2026 00:00:00 +0800</pubDate>
+      <category>AI安全</category>
+    </item>
+    <item>
+      <title>科创比赛答辩实战教程</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/161821269</link>
+      <description>以省赛一等奖第一名答辩经验为基础，从PPT结构设计、时间分配、现场问答到准备清单，系统梳理科创比赛答辩实战技巧。</description>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 +0800</pubDate>
+      <category>教程</category>
+    </item>
+    <item>
+      <title>免费Token随便用！Agnes模型接入Trae IDE完整教程</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/161806485</link>
+      <description>Agnes AI宣布全系列模型API无限期免费开放。详细体验Agnes 2.0 Flash模型在Trae SOLO中的实际表现，提供完整的自定义模型接入教程。</description>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0800</pubDate>
+      <category>AI</category>
+    </item>
+    <item>
+      <title>AI Agent 安全危机：当你的"智能助手"变成攻击者的"远程武器"</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/161802965</link>
+      <description>以开源AI Agent OpenClaw为切入点，系统分析Agent架构核心安全威胁——从CVE-2026-25253远程代码执行到Skill供应链投毒，提供攻击原理剖析与防御策略。</description>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0800</pubDate>
+      <category>AI安全</category>
+    </item>
+    <item>
+      <title>【AI安全】大模型安全威胁：Prompt注入与模型防御策略</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/161774380</link>
+      <description>系统梳理Prompt注入的攻击原理与典型场景，提供可复现的攻击示例代码，深入探讨从输入层到输出层的多级防御策略，介绍主流开源防御工具。</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 +0800</pubDate>
+      <category>AI安全</category>
+    </item>
+    <item>
+      <title>【春笋计划复盘02】答辩PPT是怎么炼成的？——从内容设计到现场呈现 实战分析</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/161766946</link>
+      <description>春笋计划复盘系列第二篇，详细拆解市级现场答辩实战经验，包括11页PPT结构设计、三大关键决策、评委4类典型问题及回答技巧。</description>
+      <pubDate>Wed, 27 May 2026 00:00:00 +0800</pubDate>
+      <category>教程</category>
+    </item>
+    <item>
+      <title>【春笋计划复盘01】我为什么要做AI钓鱼网站检测？</title>
+      <link>https://blog.csdn.net/qq_68725483/article/details/161746660</link>
+      <description>从身边同学遭遇钓鱼网站诈骗的真实经历出发，分享AI钓鱼网站动态识别项目的选题思路与历程，介绍春笋计划选拔流程。</description>
+      <pubDate>Mon, 25 May 2026 00:00:00 +0800</pubDate>
+      <category>网络安全</category>
+    </item>
     <item>
       <title>从快手"12·22"直播攻击事件看：一次教科书式的业务层饱和攻击</title>
       <link>https://blog.csdn.net/qq_68725483/article/details/156206753</link>

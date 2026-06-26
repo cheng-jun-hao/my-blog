@@ -1,6 +1,90 @@
 // 文章数据 - CJH 的技术博客
 const articles = [
   {
+    title: "微软Copilot高危漏洞CVE-2026-42824全解析",
+    date: "2026-06-20",
+    category: "AI安全",
+    summary: "2026年6月微软Copilot曝出严重级漏洞CVE-2026-42824（代号SearchLeak），攻击者只需诱骗用户点击链接，即可窃取2FA验证码、邮件内容、会议详情等敏感数据。同时一项研究显示Copilot医疗建议中42%可能导致伤害。本文从技术视角深度解析漏洞原理与防御策略。",
+    url: "https://blog.csdn.net/qq_68725483/article/details/162168299"
+  },
+  {
+    title: "用5个国产大模型帮你选大学",
+    date: "2026-06-17",
+    category: "AI",
+    summary: "2026年高考季，国产大模型集体涌入志愿填报赛道。本文实测智谱GLM 5、Deepseek V4 Pro、Qwen3.6、小米MIMO V2.5 Pro、MiniMax M3五大模型，从准确性、易用性、功能全面性、信息来源可靠性四个维度横向对比，帮高考生和家长找到最适合的AI志愿助手。",
+    url: "https://blog.csdn.net/qq_68725483/article/details/162078200"
+  },
+  {
+    title: "2026国产大模型API选购指南",
+    date: "2026-06-17",
+    category: "AI",
+    summary: "2026年国产大模型百花齐放，本文横向对比智谱GLM、通义千问、Deepseek、MiniMax、小米MIMO、Kimi六大主流模型API，从价格、性能、生态、稳定性、易用性五个维度全面评测，帮你找到最适合自己的那一个。",
+    url: "https://blog.csdn.net/qq_68725483/article/details/162078158"
+  },
+  {
+    title: "免费开源国产：小米MiMo Code首日GitHub爆火",
+    date: "2026-06-11",
+    category: "AI",
+    summary: "2026年6月11日，小米MiMo Code V0.1.0以MIT协议开源，GitHub首日爆火，Hacker News获426分。这款终端原生AI编程Agent内嵌免费多模态模型，跑分超Claude Code。本文深度解析MiMo Code的技术架构，实测对比Claude Code和Trae，探讨国产AI编程工具的未来。",
+    url: "https://blog.csdn.net/qq_68725483/article/details/162016315"
+  },
+  {
+    title: "上线仅72小时被强制下架：Claude Fable 5 的短命",
+    date: "2026-06-13",
+    category: "AI",
+    summary: "2026年6月9日，Anthropic发布号称\"地表最强商用AI\"的Claude Fable 5，仅3天后美国政府以\"国家安全\"为由强制全球下架。从发布到禁用，72小时内完成了一场完整的\"神坛坠落\"。本文从技术视角深度解读事件始末，分析对开发者生态的影响及背后的战略博弈。",
+    url: "https://blog.csdn.net/qq_68725483/article/details/161961836"
+  },
+  {
+    title: "大模型的\"越狱\"之路：从DAN到多模态注入，AI安全边界正在崩塌",
+    date: "2026-06-08",
+    category: "AI安全",
+    summary: "从早期的DAN角色扮演到2026年的ForgeDAN进化式越狱框架，再到多模态视频模态注入，大模型越狱攻击正在从\"简单粗暴\"走向\"系统化、隐蔽化\"。本文系统梳理越狱攻击的演进脉络，拆解ForgeDAN、视频模态越狱等真实案例，分析攻击原理，提供从模型层到输出层的多级防御方案。",
+    url: "https://blog.csdn.net/qq_68725483/article/details/161904080"
+  },
+  {
+    title: "科创比赛答辩实战教程",
+    date: "2026-06-09",
+    category: "教程",
+    summary: "以陕西省第二十六届学生数字素养实践活动省赛一等奖第一名的答辩经验为基础，从PPT结构设计、时间分配、现场问答到准备清单，系统梳理科创比赛答辩实战技巧，为准备科创比赛答辩的同学提供全方位指导。",
+    url: "https://blog.csdn.net/qq_68725483/article/details/161821269"
+  },
+  {
+    title: "免费Token随便用！Agnes模型接入Trae IDE完整教程",
+    date: "2026-06-02",
+    category: "AI",
+    summary: "2026年6月1日起，Agnes AI宣布旗下文本、图像、视频全系列模型API无限期免费开放。本文详细体验Agnes 2.0 Flash模型在Trae SOLO中的实际表现，并提供完整的自定义模型接入教程，全程无广，Token随便用。",
+    url: "https://blog.csdn.net/qq_68725483/article/details/161806485"
+  },
+  {
+    title: "AI Agent 安全危机：当你的\"智能助手\"变成攻击者的\"远程武器\"",
+    date: "2026-06-01",
+    category: "AI安全",
+    summary: "2026年AI Agent成为最热技术话题，但其安全风险被严重低估。本文以开源AI Agent OpenClaw为切入点，系统分析Agent架构的核心安全威胁——从CVE-2026-25253远程代码执行漏洞到Skill供应链投毒，提供攻击原理剖析、PoC代码复现与多层次防御策略。",
+    url: "https://blog.csdn.net/qq_68725483/article/details/161802965"
+  },
+  {
+    title: "【AI安全】大模型安全威胁：Prompt注入与模型防御策略",
+    date: "2026-05-28",
+    category: "AI安全",
+    summary: "随着大语言模型在各类应用中的广泛部署，Prompt注入攻击已成为AI安全领域最突出的威胁之一。本文从开发者视角出发，系统梳理Prompt注入的攻击原理与典型场景，提供可复现的攻击示例代码，深入探讨从输入层到输出层的多级防御策略，并介绍主流开源防御工具。",
+    url: "https://blog.csdn.net/qq_68725483/article/details/161774380"
+  },
+  {
+    title: "【春笋计划复盘02】答辩PPT是怎么炼成的？——从内容设计到现场呈现 实战分析",
+    date: "2026-05-27",
+    category: "教程",
+    summary: "春笋计划复盘系列第二篇，详细拆解市级现场答辩（3分钟PPT展示+3分钟提问）的实战经验。内容包括11页PPT的结构设计与时间分配、三大关键决策（证书背书、视频演示、类比降门槛）、评委4类典型问题及考察点、回答技巧等。",
+    url: "https://blog.csdn.net/qq_68725483/article/details/161766946"
+  },
+  {
+    title: "【春笋计划复盘01】我为什么要做AI钓鱼网站检测？",
+    date: "2026-05-25",
+    category: "网络安全",
+    summary: "2025年AI兴起后，身边多位同学遭遇钓鱼网站诈骗的真实经历，萌生了用AI对抗AI生成钓鱼网站的想法。凭借对CNN卷积神经网络和网络安全技术的双重兴趣，独立完成了《AI钓鱼网站动态识别及防护软件》项目。本文介绍西安市春笋计划的选拔流程，分享选题思路与项目历程。",
+    url: "https://blog.csdn.net/qq_68725483/article/details/161746660"
+  },
+  {
     title: "从快手\"12·22\"直播攻击事件看：一次教科书式的业务层饱和攻击",
     date: "2025-12-23",
     category: "网络安全",
