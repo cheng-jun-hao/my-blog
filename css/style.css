@@ -598,15 +598,20 @@ section.section-visible::before {
   width: 80px;
 }
 
-/* 板块入场动画 */
+/* 板块入场动画（渐进增强：默认可见，JS正常时再播动画） */
 section .section-inner {
-  opacity: 0;
-  transform: translateY(40px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
               transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-section.section-visible .section-inner {
+section.section-animate .section-inner {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+section.section-animate.section-visible .section-inner {
   opacity: 1;
   transform: translateY(0);
 }
@@ -701,7 +706,7 @@ section.section-visible .section-inner {
 }
 
 .article-card {
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 24px 28px;
@@ -914,12 +919,17 @@ section.section-visible .section-inner {
 .timeline-item {
   position: relative;
   padding-bottom: 28px;
-  opacity: 0;
-  transform: translateX(-8px);
+  opacity: 1;
+  transform: translateX(0);
   transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.timeline-item.visible {
+.timeline-animate .timeline-item {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+
+.timeline-animate .timeline-item.visible {
   opacity: 1;
   transform: translateX(0);
 }

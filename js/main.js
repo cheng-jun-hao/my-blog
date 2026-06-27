@@ -354,35 +354,55 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== 板块入场动画 =====
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("section-visible");
-        sectionObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: "0px 0px -60px 0px" });
+  // ===== 板块入场动画（渐进增强）=====
+  if ("IntersectionObserver" in window) {
+    const sections = document.querySelectorAll("section[id]:not(#hero)");
+    sections.forEach(el => el.classList.add("section-animate"));
 
-  document.querySelectorAll("section[id]:not(#hero)").forEach(el => {
-    sectionObserver.observe(el);
-  });
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("section-visible");
+          sectionObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -60px 0px" });
 
-  // 时间线入场动画
-  const timelineObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add("visible");
-        }, index * 150);
-        timelineObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
+    sections.forEach(el => sectionObserver.observe(el));
 
-  document.querySelectorAll(".timeline-item").forEach(el => {
-    timelineObserver.observe(el);
-  });
+    setTimeout(() => {
+      const vh = window.innerHeight;
+      sections.forEach(el => {
+        if (el.classList.contains("section-visible")) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top < vh * 0.92 && rect.bottom > 60) {
+          el.classList.add("section-visible");
+          sectionObserver.unobserve(el);
+        }
+      });
+    }, 100);
+  }
+
+  // 时间线入场动画（渐进增强）
+  if ("IntersectionObserver" in window) {
+    const timelineItems = document.querySelectorAll(".timeline-item");
+    if (timelineItems.length > 0) {
+      timelineItems[0].closest(".timeline").classList.add("timeline-animate");
+
+      const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add("visible");
+            }, index * 150);
+            timelineObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      timelineItems.forEach(el => timelineObserver.observe(el));
+    }
+  }
 
   // 技能标签交错入场
   const skillObserver = new IntersectionObserver((entries) => {
